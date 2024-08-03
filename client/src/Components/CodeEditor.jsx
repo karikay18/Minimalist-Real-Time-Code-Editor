@@ -11,7 +11,7 @@ const CodeEditor = ({ code, setCode, roomId }) => {
 
   return (
     <Editor
-      height="100%"
+      height="80vh"
       defaultLanguage="javascript"
       value={code}
       onChange={handleEditorChange}

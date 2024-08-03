@@ -99,6 +99,7 @@ const Editor = () => {
             code={code}
             setCode={setCode}
             roomId={roomId}
+            
           />
         </div>
       </div>
