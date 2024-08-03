@@ -1,17 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '../Components/Footer';
+import socket from '../utils/Socket';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
   const [showInput, setShowInput] = useState(false);
+  const [showNewRoomInput, setShowNewRoomInput] = useState(false);
   const [roomId, setRoomId] = useState('');
   const [name, setName] = useState('');
+  const navigate=useNavigate();
 
+  useEffect(() => {
+    socket.emit("check-health", 'kjbkajbvkajb');
+    socket.on("rest", (data) => {
+      console.log(data);
+    });
+  
+    // Cleanup function
+    return () => {
+      socket.off("rest");
+    };
+  }, []);
   const handleJoinRoom = () => {
     setShowInput(true);
+    setShowNewRoomInput(false);
   };
 
   const handleCreateRoom = () => {
-    // Implement room creation logic here
+    setShowNewRoomInput(true);
+    setShowInput(false);
   };
 
   const handleNameChange = (e) => {
@@ -23,13 +41,16 @@ const Home = () => {
   };
 
   const handleSubmitRoomId = () => {
-    console.log(`Joining room with ID: ${roomId}, Name: ${name}`);
-    // Implement your room joining logic here
+    if (roomId && name) {
+      console.log(`Joining room with ID: ${roomId}, Name: ${name}`);
+      navigate(`/editor/${roomId}/${name}`);
+    } else {
+      alert("Please enter both room ID and name");
+    }
   };
-
   return (
     <div className="font-mono text-gray-400 h-screen flex flex-col items-center justify-center">
-      {!showInput ? (
+      {!showInput && !showNewRoomInput ? (
         <>
           <button className="text-2xl mb-4 hover:text-[#a08521]" onClick={handleJoinRoom}>
             Join a Room
@@ -39,7 +60,7 @@ const Home = () => {
             Create a Room
           </button>
         </>
-      ) : (
+      ) : showInput ? (
         <div className="flex flex-col items-center">
           <input
             className="border-b border-gray-400 px-2 py-1 mb-4 bg-transparent text-xl"
@@ -58,6 +79,24 @@ const Home = () => {
             onClick={handleSubmitRoomId}
           >
             Join
+          </button>
+        </div>
+      ) : (
+        <div className='new-room-id-input flex flex-col gap-10'>
+          <input
+            className="border-b border-gray-400 px-2 py-1 mb-4 bg-transparent text-xl"
+            placeholder="Enter Your Name"
+            value={name}
+            onChange={handleNameChange}
+          />
+          <button 
+            className="text-lg border px-2 py-1 mb-4 rounded font-bold hover:text-[#a08521] hover:border-[#a08521]" 
+            onClick={() => {
+              // Implement room creation logic here
+              console.log(`Creating room for: ${name}`);
+            }}
+          >
+            Create Room
           </button>
         </div>
       )}
