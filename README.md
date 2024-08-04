@@ -16,8 +16,9 @@ The Minimalist Real-Time Code Editor is a web-based application that allows mult
 
 ## Project Structure 
 
+![diagram-export-8-4-2024-10_32_24-PM](https://github.com/user-attachments/assets/f585c194-e8bc-4617-b4c2-a60d8fd35cd6)
 
-*img*
+
 
 ## Getting Started 
 
@@ -54,7 +55,7 @@ npm install
 1. **Start the server** :
 
 ```sh
-npm start
+node server.js
 ```
  
 2. **Start the client** :
