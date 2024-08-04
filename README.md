@@ -33,7 +33,7 @@ The Minimalist Real-Time Code Editor is a web-based application that allows mult
 1. **Clone the repository** :
 
 ```sh
-git clone <repository-url>
+git clone https://github.com/karikay18/Minimalist-Real-Time-Code-Editor.git
 ```
  
 2. **Navigate to the client directory and install dependencies** :
@@ -65,7 +65,7 @@ cd ../client
 npm run dev
 ```
  
-3. **Open your browser**  and navigate to `http://localhost:3000` to see the application in action.
+3. **Open your browser**  and navigate to `http://localhost:5173` to see the application in action.
 
 ## System Design 
 
