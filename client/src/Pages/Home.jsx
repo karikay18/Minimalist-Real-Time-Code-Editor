@@ -51,7 +51,7 @@ const Home = () => {
 
   const handleCreateRoomSubmit = async () => {
     if (name.trim()) {
-      const response = await fetch("http://localhost:3001/createroom");
+      const response = await fetch("https://editor-server-4yde.onrender.com/createroom");
       const res = await response.json();
       console.log(res);
 

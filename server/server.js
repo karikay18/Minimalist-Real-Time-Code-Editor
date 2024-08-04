@@ -4,6 +4,7 @@ const socketIo = require("socket.io");
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
+require('dotenv').config()
 
 const app = express();
 app.use(cors());
@@ -11,7 +12,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENTURL,
     methods: ["GET", "POST"],
   },
 });
