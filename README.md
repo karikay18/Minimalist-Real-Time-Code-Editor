@@ -13,6 +13,12 @@ The Minimalist Real-Time Code Editor is a web-based application that allows mult
 - **User-Friendly Interface** : A clean and intuitive UI built with React and Tailwind CSS.
  
 - **Scalable Backend** : A Node.js server with Socket.IO to handle real-time communication between clients.
+##  Demo
+- [Video Demo](https://drive.google.com/file/d/1p6UafP85DbI-WpxEBcjrS49Y5kfKADsQ/view?usp=drive_link)
+- ![Screenshot 2024-08-05 161441](https://github.com/user-attachments/assets/d2f1ed5f-99f0-4d53-a9e5-4073423349c8)
+- ![Screenshot 2024-08-05 161333](https://github.com/user-attachments/assets/33f7e9de-bb93-4488-a758-d963ecb46860)
+
+
 
 ## Project Structure 
 
